@@ -1,5 +1,6 @@
 package com.github.splos.car;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import com.github.splos.car.CarView.Public;
 import com.github.splos.car.CarView.WithComments;
 import java.security.Principal;
@@ -36,7 +37,7 @@ public class CarController {
   }
 
   @GetMapping("/api/car/{carId}")
-  public MappingJacksonValue getAll(@PathVariable Long carId, Principal principal) {
+  public MappingJacksonValue getDetail(@PathVariable Long carId, Principal principal) {
     Car car = carRepository.findById(carId).orElse(null);
     if (car == null) {
       throw new ResponseStatusException(HttpStatus.NOT_FOUND);
@@ -50,5 +51,11 @@ public class CarController {
     result.setSerializationView(view);
 
     return result;
+  }
+
+  @GetMapping("/api/car/all")
+  @JsonView(CarView.Public.class)
+  public Iterable<Car> getAll() {
+    return carRepository.findAll();
   }
 }
