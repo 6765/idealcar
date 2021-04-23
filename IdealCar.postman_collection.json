@@ -26,7 +26,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"lastName\": \"{{$randomLastName}}\",\n    \"email\": \"{{$randomEmail}}\",\n    \"password\": \"{{$randomPassword}}\"\n}"
+					"raw": "{\n    \"firstName\": \"{{$randomFirstName}}\",\n    \"lastName\": \"{{$randomLastName}}\",\n    \"email\": \"{{$randomEmail}}\",\n    \"password\": \"{{$randomPassword}}\"\n}"
 				},
 				"url": {
 					"raw": "http://localhost:8080/api/user",
@@ -60,7 +60,7 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:8080/api/car/1",
+					"raw": "http://localhost:8080/api/car/2",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -69,7 +69,7 @@
 					"path": [
 						"api",
 						"car",
-						"1"
+						"2"
 					]
 				}
 			},
@@ -156,6 +156,30 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "List Cars",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/car/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"car",
+						"all"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"auth": {
@@ -163,7 +187,7 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJQcmVzdG9uX0phY29iaUB5YWhvby5jb20iLCJleHAiOjE2MTkxMzc5NDcsImlhdCI6MTYxOTExOTk0N30.yI9t4rwSISWReybEGRlaSlpyHJUiJEUj23RA5C4m18M89fiYQmr9HI2KgQWrTGvJrQYDYusWfGNZ_caKZfdTyw",
+				"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJSdXRoZV9QcmljZUBob3RtYWlsLmNvbSIsImV4cCI6MTYxOTE0MDE5MiwiaWF0IjoxNjE5MTIyMTkyfQ.11vQoBgEjSSekH1NAO5QZh3LoCYZxDWjbvBsvH5DkpruvmGUy7ifbHFXsmK2nC91o6u5X8nAkjVY0eTcoBbTZQ",
 				"type": "string"
 			}
 		]
